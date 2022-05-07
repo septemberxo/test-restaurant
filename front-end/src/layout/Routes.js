@@ -9,7 +9,7 @@ import {
 import NotFound from "./NotFound";
 import useQuery from "../utils/useQuery";
 import { today } from "../utils/date-time";
-import { listReservations, listTables } from "../utils/api";
+import { changeReservationStatus, listReservations, listTables } from "../utils/api";
 import Dashboard from "../dashboard/Dashboard";
 import NewTable from "../tables/NewTable";
 import SeatReservation from "../reservations/SeatReservation";
@@ -63,14 +63,14 @@ function Routes() {
     let result = window.confirm(
       "Do you want to cancel this reservation? \n \n This cannot be undone."
     );
-    // if (result)
-    //   changeReservationStatus(
-    //     reservation_id,
-    //     "cancelled",
-    //     abortController.signal
-    //   )
-    //     .then(() => window.location.reload())
-    //     .catch(setReservationsError);
+    if (result)
+      changeReservationStatus(
+        reservation_id,
+        "cancelled",
+        abortController.signal
+      )
+        .then(() => window.location.reload())
+        .catch(setReservationsError);
 
     return () => abortController.abort();
   }
