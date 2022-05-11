@@ -24,7 +24,7 @@ export default function CreateReservation({ reservations, setReservations }) {
     history.goBack();
   }
 
-  let errors;
+  let errors; 
   if (errorAlerts.length >= 1) {
     errors = errorAlerts.map((error, i) => {
       return (
