@@ -28,7 +28,7 @@ export default function CreateReservation({ reservations, setReservations }) {
   if (errorAlerts.length >= 1) {
     errors = errorAlerts.map((error, i) => {
       return (
-        <div key={i}>
+        <div key={error.status}>
           <ErrorAlert error={error} />
         </div>
       );
